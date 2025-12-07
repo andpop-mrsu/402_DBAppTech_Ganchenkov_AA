@@ -1,0 +1,47 @@
+{
+    "name": "ganchenkov/cold-hot",
+    "description": "Консольная игра 'Холодно-горячо' - угадай трехзначное число",
+    "type": "project",
+    "keywords": ["game", "cli", "console", "cold-hot", "guess-number"],
+    "homepage": "https://github.com/ganchenkov/cold-hot",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ganchenkov AA",
+            "email": "ganchenkov@example.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/ganchenkov/cold-hot/issues",
+        "source": "https://github.com/ganchenkov/cold-hot"
+    },
+    "require": {
+        "php": ">=8.0",
+        "ext-pdo": "*",
+        "ext-pdo_sqlite": "*",
+        "wp-cli/php-cli-tools": "^0.11"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0",
+        "giorgiosironi/eris": "^1.0"
+    },
+    "autoload": {
+        "files": [
+            "src/Controller.php",
+            "src/View.php",
+            "src/Model.php",
+            "src/Database.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ganchenkov\\ColdHot\\Tests\\": "tests/"
+        }
+    },
+    "bin": [
+        "bin/cold-hot"
+    ],
+    "config": {
+        "sort-packages": true
+    }
+}
