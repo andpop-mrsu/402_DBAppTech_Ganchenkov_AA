@@ -1,0 +1,12 @@
+# Composer dependencies
+vendor/
+
+# Database files
+*.db
+
+# IDE directories
+.idea/
+.vscode/
+
+# Composer lock (optional, can be committed for applications)
+composer.lock
