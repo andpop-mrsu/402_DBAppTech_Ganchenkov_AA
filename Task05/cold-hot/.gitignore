@@ -1,0 +1,15 @@
+# Composer dependencies
+vendor/
+
+# Database files
+*.db
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
