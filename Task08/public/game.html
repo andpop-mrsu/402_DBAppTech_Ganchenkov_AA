@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Холодно-горячо (SPA)</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔥 Холодно-горячо ❄️</h1>
+            <p class="subtitle">Угадай трёхзначное число (SPA + REST API)</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab active" data-tab="game">Новая игра</button>
+            <button class="tab" data-tab="history">История</button>
+            <button class="tab" data-tab="rules">Правила</button>
+        </nav>
+
+        <!-- Экран новой игры -->
+        <section id="game" class="tab-content active">
+            <div id="name-form" class="form-section">
+                <label for="player-name">Введите ваше имя:</label>
+                <input type="text" id="player-name" placeholder="Имя игрока" maxlength="20">
+                <button id="start-btn" class="btn primary">Начать игру</button>
+            </div>
+
+            <div id="game-area" class="hidden">
+                <div class="game-info">
+                    <span>Игрок: <strong id="current-player"></strong></span>
+                    <span>Попыток: <strong id="attempts-count">0</strong></span>
+                </div>
+
+                <div class="guess-form">
+                    <input type="text" id="guess-input" placeholder="Введите число" maxlength="3">
+                    <button id="guess-btn" class="btn primary">Проверить</button>
+                </div>
+
+                <div id="hints" class="hints"></div>
+                <div id="history-list" class="history-list"></div>
+            </div>
+
+            <div id="victory" class="hidden victory">
+                <h2>🎉 Поздравляем!</h2>
+                <p>Вы угадали число <strong id="secret-reveal"></strong></p>
+                <p>Количество попыток: <strong id="final-attempts"></strong></p>
+                <button id="new-game-btn" class="btn primary">Новая игра</button>
+            </div>
+        </section>
+
+        <!-- Экран истории -->
+        <section id="history" class="tab-content">
+            <h2>История партий</h2>
+            <p class="db-info">💾 Данные хранятся на сервере (SQLite)</p>
+            <div id="games-list" class="games-list">
+                <p class="no-games">Загрузка...</p>
+            </div>
+        </section>
+
+        <!-- Экран правил -->
+        <section id="rules" class="tab-content">
+            <h2>Правила игры</h2>
+            <ul class="rules-list">
+                <li>Компьютер загадывает трёхзначное число без повторяющихся цифр</li>
+                <li>Первая цифра не может быть нулём</li>
+                <li>После каждой попытки вы получаете подсказки:</li>
+            </ul>
+            <div class="hints-explanation">
+                <div class="hint-item hot">🔥 Горячо — цифра на своём месте</div>
+                <div class="hint-item warm">🌡️ Тепло — цифра есть, но не на своём месте</div>
+                <div class="hint-item cold">❄️ Холодно — такой цифры нет в числе</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Модальное окно -->
+    <div id="replay-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div id="replay-content"></div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
