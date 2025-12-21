@@ -1,0 +1,33 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+/**
+ * Cold-Hot Game - Executable Entry Point
+ */
+
+$autoloadPaths = [
+    __DIR__ . '/../vendor/autoload.php',
+    __DIR__ . '/../../../autoload.php',
+    __DIR__ . '/../../autoload.php',
+];
+
+$autoloadFound = false;
+foreach ($autoloadPaths as $autoloadPath) {
+    if (file_exists($autoloadPath)) {
+        require_once $autoloadPath;
+        $autoloadFound = true;
+        break;
+    }
+}
+
+if (!$autoloadFound) {
+    fwrite(STDERR, "Ошибка: не найден autoload.php\n");
+    fwrite(STDERR, "Выполните 'composer install' в директории проекта\n");
+    exit(1);
+}
+
+use function Ganchenkov\ColdHot\Controller\startGame;
+
+startGame();
