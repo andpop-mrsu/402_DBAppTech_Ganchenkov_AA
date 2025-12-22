@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+/**
+ * Cold-Hot Game - Executable Entry Point
+ *
+ * Консольная игра "Холодно-горячо" - угадай трехзначное число
+ */
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use function Ganchenkov\ColdHot\Controller\startGame;
+
+startGame();
