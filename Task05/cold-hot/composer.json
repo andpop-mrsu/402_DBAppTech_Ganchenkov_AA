@@ -1,0 +1,36 @@
+{
+    "name": "ganchenkov/cold-hot",
+    "description": "Console game Cold-Hot",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ganchenkov AA",
+            "email": "ganchenkov@example.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "ext-pdo": "*",
+        "ext-pdo_sqlite": "*",
+        "wp-cli/php-cli-tools": "^0.11",
+        "gabordemooij/redbean": "^5.7"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.7"
+    },
+    "autoload": {
+        "files": [
+            "src/Controller.php",
+            "src/View.php",
+            "src/Model.php",
+            "src/Database.php"
+        ]
+    },
+    "bin": [
+        "bin/cold-hot"
+    ],
+    "config": {
+        "sort-packages": true
+    }
+}

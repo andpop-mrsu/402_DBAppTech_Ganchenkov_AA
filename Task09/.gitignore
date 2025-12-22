@@ -1,0 +1,5 @@
+# Composer
+/vendor/
+
+# SQLite database
+db/*.db
